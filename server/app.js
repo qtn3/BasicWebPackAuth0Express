@@ -11,6 +11,8 @@ const open = require('open');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const authRouter = require('./auth');
+
 // App Variables
 const app = express();
 const port = process.env.PORT || '3000';
@@ -63,6 +65,9 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
     done(null, user);
 });
+
+// Router Mounting
+app.use('/', authRouter);
 /*
 const app = express();
 app.use(cors());
