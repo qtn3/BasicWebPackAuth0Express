@@ -1,8 +1,17 @@
 const express = require('express');
+const path = require('path');
+
+const expressSession = require('express-session');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+
+require('dotenv').config();
+
 const open = require('open');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+// App Variables
 const app = express();
 app.use(cors());
 app.use(express.static('docs'));
