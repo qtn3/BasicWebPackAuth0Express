@@ -13,6 +13,25 @@ const cors = require('cors');
 
 // App Variables
 const app = express();
+const port = process.env.PORT || '3000';
+
+// Session Configuration
+const session = {
+    secret: process.env.SESSION_SECRET,
+    cookie: {},
+    resave: false,
+    saveUninitialized: false,
+};
+
+if (app.get('env') === 'production') {
+    // Serve secure cookies, requires HTTPS
+    session.cookie.secure = true;
+}
+
+// Passport Configuration
+
+/*
+const app = express();
 app.use(cors());
 app.use(express.static('docs'));
 
@@ -42,3 +61,5 @@ app.listen(app.get('port'), () => {
     console.log('%s: Node server started on %s ...', Date(Date.now()), app.get('port'));
     open('http://localhost:8000');
 });
+*/
+
