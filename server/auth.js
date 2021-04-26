@@ -7,5 +7,13 @@ const querystring = require('querystring');
 
 require('dotenv').config();
 // Routes Definitions
-
+router.get(
+    '/login',
+    passport.authenticate('auth0', {
+        scope: 'openid email profile',
+    }),
+    (req, res) => {
+        res.redirect('/');
+    },
+);
 // Module Exports
