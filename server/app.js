@@ -95,6 +95,10 @@ app.get('/user', secured, (req, res, next) => {
         userProfile: userProfile,
     });
 });
+
+app.listen(port, () => {
+    console.log(`Listening to requests on http://localhost:${port}`);
+});
 /*
 const app = express();
 app.use(cors());
@@ -127,4 +131,3 @@ app.listen(app.get('port'), () => {
     open('http://localhost:8000');
 });
 */
-
